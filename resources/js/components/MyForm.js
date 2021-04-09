@@ -1,19 +1,24 @@
-import React from 'react';
-
+import React,{ useState } from 'react';
+import MyDropdown from './MyDropdown.js';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 function MyForm() {
+
+  const [url, setUrl] = useState("");
+  const grabUrl = (value)=> setUrl(prevState => value);
+  console.log(url);
     return (
-        <Form inline>
+      
+        <Form className="container"inline>
         <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-          <Label for="exampleEmail" className="mr-sm-2">Email</Label>
-          <Input type="email" name="email" id="exampleEmail" placeholder="something@idk.cool" />
+          <Label for="dropdown" className="mr-sm-2">HTTP Protocol</Label>
+          <MyDropdown />
         </FormGroup>
         <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-          <Label for="examplePassword" className="mr-sm-2">Password</Label>
-          <Input type="password" name="password" id="examplePassword" placeholder="don't tell!" />
+          <Label for="examplePassword" className="mr-sm-2">URL string</Label>
+          <Input onChange={(e)=>grabUrl(e.target.value)}type="text" name="urlString" id="urlString" placeholder="enter url" />
         </FormGroup>
-        <Button>Submit</Button>
+        <Button>Send</Button>
       </Form>
     );
 }

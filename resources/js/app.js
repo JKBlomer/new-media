@@ -16,3 +16,4 @@ require('./components/Example');
 
 require('./components/MyNavbar');
 require('./components/MyForm');
+require('./components/MyDropdown');
