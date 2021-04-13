@@ -2384,7 +2384,7 @@ var MyDropdown = function MyDropdown(props) {
       dropdownOpen = _useState2[0],
       setDropdownOpen = _useState2[1];
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("GET"),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(props.protocol),
       _useState4 = _slicedToArray(_useState3, 2),
       protocol = _useState4[0],
       setProtocol = _useState4[1];
@@ -2395,13 +2395,7 @@ var MyDropdown = function MyDropdown(props) {
     });
   };
 
-  var grabValue = function grabValue(value) {
-    return setProtocol(function (prevState) {
-      return value;
-    });
-  };
-
-  var protocolArray = ["POST", "PUT", "DELETE"];
+  var protocolArray = ["GET", "POST", "PUT", "DELETE"];
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(reactstrap__WEBPACK_IMPORTED_MODULE_2__.default, {
     isOpen: dropdownOpen,
     toggle: toggle,
@@ -2411,12 +2405,13 @@ var MyDropdown = function MyDropdown(props) {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_4__.default, {
       right: true,
       children: protocolArray.map(function (x) {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_5__.default, {
-          onClick: function onClick() {
-            return grabValue(x);
-          },
-          children: x
-        }, x);
+        return (
+          /*#__PURE__*/
+          // <DropdownItem key={x} onClick={()=>grabValue(x)}>{x}</DropdownItem>))
+          (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_5__.default, {
+            children: x
+          }, x)
+        );
       })
     })]
   });
@@ -2464,10 +2459,15 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function MyForm() {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("GET"),
       _useState2 = _slicedToArray(_useState, 2),
-      url = _useState2[0],
-      setUrl = _useState2[1];
+      protocol = _useState2[0],
+      setProtocol = _useState2[1];
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+      _useState4 = _slicedToArray(_useState3, 2),
+      url = _useState4[0],
+      setUrl = _useState4[1];
 
   var grabUrl = function grabUrl(value) {
     return setUrl(function (prevState) {
@@ -2475,8 +2475,10 @@ function MyForm() {
     });
   };
 
-  console.log(url);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(reactstrap__WEBPACK_IMPORTED_MODULE_3__.default, {
+    style: {
+      display: "flex"
+    },
     className: "container",
     inline: true,
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(reactstrap__WEBPACK_IMPORTED_MODULE_4__.default, {
