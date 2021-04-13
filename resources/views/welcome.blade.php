@@ -12,7 +12,7 @@
        
     </head>
     <body>
-       <div id="example"></div>
+       <div id="my-app"></div>
        <script src="/js/app.js"></script>
     </body>
 </html>

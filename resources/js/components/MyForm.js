@@ -5,11 +5,14 @@ import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap
 function MyForm() {
   const [protocol, setProtocol] =useState("GET");
   const [url, setUrl] = useState("");
-  const grabUrl = (value)=> setUrl(prevState => value);
+  const grabUrl = (value)=> setUrl(value);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const grabValue = (value)=>setProtocol(value);
   const toggle = () => setDropdownOpen(prevState => !prevState);
- 
+  const handleSubmit =(e)=>{
+    e.preventDefault();
+    console.log(url);
+  }
   const protocolArray = ["GET","POST", "PUT", "DELETE"];
 
     return (
@@ -33,7 +36,7 @@ function MyForm() {
           <Label for="examplePassword" className="mr-sm-2">URL string</Label>
           <Input onChange={(e)=>grabUrl(e.target.value)}type="text" name="urlString" id="urlString" placeholder="enter url" />
         </FormGroup>
-        <Button>Send</Button>
+        <Button onClick={(e)=>handleSubmit(e)}>Send</Button>
       </Form>
     );
 }

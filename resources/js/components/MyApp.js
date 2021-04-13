@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import MyNavbar from "./MyNavbar.js";
 import MyForm from "./MyForm.js";
 
-function Example() {
+function MyApp() {
     return (
         <div>
             <MyNavbar />
@@ -14,8 +14,8 @@ function Example() {
     );
 }
 
-export default Example;
+export default MyApp;
 
-if (document.getElementById('example')) {
-    ReactDOM.render(<Example />, document.getElementById('example'));
+if (document.getElementById('my-app')) {
+    ReactDOM.render(<MyApp />, document.getElementById('my-app'));
 }
